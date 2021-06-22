@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"math/rand"
@@ -9,7 +10,7 @@ import (
 	"time"
 )
 
-var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
 const photoDirPath = "./photo/"
 const dbDirPath = "./database/"
 const passPath = "./database/passwords.txt"
@@ -111,9 +112,7 @@ func addUser(user User) error {
 	if err != nil {return err}
 	_, err = stmt.Exec(user.Name, user.Email, password, user.Is_student)
 	if err != nil{return err}
-
 	return nil
-
 }
 
 func addElement(elem Elements) error{
@@ -121,7 +120,65 @@ func addElement(elem Elements) error{
 	if err != nil {return err}
 	stmt , err := db.Prepare("INSERT INTO element(name, src, svg, inputs, outputs) VALUES (?, ?, ?, ?, ?)")
 	if err != nil {return err}
-	_, err = stmt.Exec(elem.Name, elem.Src, elem.Svg, elem.Input, elem.Output)
+
+	input, err := json.Marshal(elem.Input)
+	output, err := json.Marshal(elem.Output)
+
+	_, err = stmt.Exec(elem.Name, elem.Src, elem.Svg, string(input), string(output))
 	if err != nil{return err}
 	return nil
 }
+
+func userLabs(student int)([]UserLabs, string, error)  {
+	var result []UserLabs
+	var name string
+	db, err := openDB()
+	if err != nil { return nil, "", err }
+	rows, err := db.Query("SELECT user.id, user.name,labs.number, labs.theme, result.result  FROM result, labs, user WHERE result.id_user = user.id AND id_lab = labs.id AND user.id = ?", student)
+	if err != nil {return nil, "", err}
+
+	for rows.Next(){
+		l := UserLabs{}
+		err = rows.Scan(&l.ID_User, &l.Username, &l.Number, &l.Theme, &l.Result)
+		if err != nil{return nil,"",  err}
+		result = append(result, l)
+		name = l.Username
+	}
+
+	return result, name, nil
+}
+
+//Работа с элементами
+
+func getElements() ([]Elements, error) {
+	db, err := openDB()
+	var result []Elements
+	if err != nil{return nil, err}
+	rows, err := db.Query("SELECT id, name, src, svg, inputs, outputs FROM element")
+
+	if err != nil{return nil, err}
+	for rows.Next(){
+		elem := Elements{}
+		var inputdots []Dots
+		var outputdots []Dots
+		var inputjson []byte
+		var outputjson []byte
+		err = rows.Scan(&elem.ID, &elem.Name, &elem.Src, &elem.Svg, &inputjson, &outputjson)
+		if err != nil {return nil, err}
+		err = json.Unmarshal(inputjson, &inputdots)
+		if err != nil {return nil, err}
+		err = json.Unmarshal(outputjson, &outputdots)
+		if err != nil {return nil, err}
+		elem.Input = inputdots
+		elem.Output = outputdots
+		result = append(result, elem)
+
+	}
+	return result, nil
+}
+
+//func addGraph(ems []Elements)  {
+//
+//
+//}
+

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gorilla/securecookie"
 	"net/http"
 	"strconv"
@@ -41,7 +40,7 @@ func getId(request *http.Request)(id int){
 
 		}
 	}
-	fmt.Print(id)
+
 	return id
 
 }

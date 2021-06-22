@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/css/bootstrap.css">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="/static/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/css/form.css">
 
@@ -13,7 +13,7 @@
 
 <body style="background-color: #ebebeb">
 
-<nav class="py-2  border-bottom bg-info">
+<nav class="py-2  border-bottom color-blue">
     <div class="container d-flex flex-wrap">
         <ul class="nav me-auto">
 
@@ -22,7 +22,7 @@
         </ul>
 
         <form class="form-inline my-2 my-lg-0 d-none d-sm-none d-md-block d-lg-block" action="/logout" method="GET">
-            <button class="btn btn-info" type="submit">Вихід</button>
+            <button class="btn btn-outline-primary color-blue" type="submit">Вихід</button>
         </form>
     </div>
 </nav>
@@ -42,7 +42,7 @@
 
     </div>
     <div class="text-xs-center text-center">
-        <button class="btn btn-block btn-info mb-2" type="submit">Реєстрація</button>
+        <button class="btn btn-block btn-primary color-blue mb-2" type="submit">Реєстрація</button>
     </div>
     <div class="text-xs-center text-center">
         <a href="/cabinet/{{.Id}}" class="btn btn-block btn-light mb-2" >Відміна</a>

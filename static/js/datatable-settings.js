@@ -38,7 +38,7 @@ $(document).ready(function () {
             extend: 'excelHtml5',
             title: 'Паролі',
             text :'Паролі',
-            className:"btn, btn-info"
+            className:"btn, btn-outline-primary, color-blue"
         }]
 
     });

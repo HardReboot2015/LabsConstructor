@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+<!--    <link rel="stylesheet" href="/static/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/form.css">
+    <link rel="stylesheet" href="/static/css/timer.css">
+
+</head>
+
+<body style="background-color: #ebebeb">
+<nav class="py-2  border-bottom color-blue">
+    <div class="container d-flex flex-wrap">
+        <ul class="nav me-auto">
+
+            <li class="nav-item"><a href="#" class="nav-link text-light px-2 active">Кабінет</a></li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0 d-none d-sm-none d-md-block d-lg-block" action="/logout" method="GET">
+            <button class="btn btn-outline-primary color-blue" style="color: white" type="submit">Вихід</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="main d-flex color-blue">
+       <div class="menu-bar d-flex flex-row flex-wrap justify-content-center">
+
+           {{ range .Elements}}
+           <img src="{{.Svg}}" id = "{{.ID}}" alt=""  class="menu-png image_menu" >
+           {{end}}
+                <img src="/photo/elements/line.png"  alt=""  id = "line" class="menu-png" onclick="add()">
+                <img  src="/photo/elements/точка.png" alt="" id = "dot" class="menu-png">
+
+        </div>
+       <div id="clock"></div>
+       <div class="labs-btn d-flex flex-column">
+        <input value='Почати спробу' onclick="isDone()" id = "start" class="btn-start btn-primary" type="submit">
+        <input value='Закінчити'class="btn-end btn-danger" id = "end" type="submit">
+       </div>
+    </div>
+    <div class="main-middle d-flex color-blue">
+<!--        <div class="working-place d-flex">-->
+
+            <canvas id="canvas" width="892px" height="768px"></canvas>
+<!--        </div>-->
+        <div class="grafics d-flex justify-content-center flex-column">
+            <img src="/photo/1graphic.svg">
+            <select class="combobox d-flex justify-content-center">
+             <option selected value="s1">Виберіть правильний варіант</option>
+             <option value="s2">Варіан1</option>
+             <option value="s3">Варіант2</option>
+            </select> 
+            <img src="/photo/2graphic.svg">
+            <select class="combobox d-flex justify-content-center">
+                <option selected value="s1">Виберіть правильний варіант</option>
+                <option value="s2">Варіан1</option>
+                <option value="s3">Варіант2</option>
+               </select> 
+        </div>
+    </div>   
+</div>
+<script src="/static/js/timer.js"></script>
+<script src = "/static/js/btn-func.js"></script>
+<script src="/static/js/canvas.js"></script>
+</body>
+</html>

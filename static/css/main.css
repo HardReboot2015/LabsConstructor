@@ -2,5 +2,107 @@
     margin-right: auto;
 }
 form>.btn-info:hover{
-    background-color: #17a2b8;
+    /*background-color: #17a2b8;*/
+    background-color: #3F51B5;
+}
+.color-blue{
+    background-color: #3F51B5!important;
+    color : white;
+}
+.color-outline-blue{
+    background-color: transparent;
+    border-color: #3F51B5;
+    color: #3F51B5;
+}
+.color-outline-blue:hover{
+    background-color: #3F51B5;
+    color: white;
+
+}
+.color-grey{
+    background-color: #f5f5f5;
+
+}
+.main{
+    /*background-color: #17a2b8;*/
+    background-color: #3F51B5;
+    margin: 0px;
+    height: 200px;
+    padding: 5px;
+}
+.menu-bar{
+    background-color: #f5f5f5;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 70%;
+    padding: 5px;
+}
+#clock{
+    background-color: transparent;
+    border-radius: 5px;
+    width: 10%;
+    margin-left: 5px;
+}
+.labs-btn{
+    background-color: transparent;
+    border-radius: 5px;
+    width: 20%;
+    margin-left: 5px;
+}
+.btn-start, .btn-end{
+    border-radius: 5px;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+.btn-start{
+    margin-top: 15px;
+
+}
+.btn-end:hover {
+    color: red;
+    background-color: #f5f5f5;
+}
+.btn-start:hover{
+    color: #0000ff;
+    background-color: #f5f5f5;
+}
+.main-middle{
+    background-color: transparent;
+    height: 692px;
+    padding: 10px 5px;
+}
+.working-place{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 70%;
+}
+#canvas{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 668px;
+    width: 763px;
+}
+.grafics{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 30%;
+    margin-left: 5px;
+}
+.menu-png{
+    width: 10%;
+}
+.line-point{
+    width: 100%;
+}
+.combobox{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.schema{
+    width: 405px;
+    height: 511px;
 }

@@ -1,9 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/max75025/httprouter"
 	"github.com/max75025/open-golang/open"
+
 	"html/template"
 	"log"
 	"net/http"
@@ -17,15 +19,19 @@ func init(){
 		log.Fatal(err)
 	}
 
+
 }
+
 func main(){
 	open.Start("http://localhost:8000/")
 	router := httprouter.New()
 	router.ServeFiles("/static/*filepath", http.Dir("static"))
+	router.ServeFiles("/photo/*filepath", http.Dir("photo"))
 
 	router.GET("/", func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-		redirectTarget := "/login"
+		redirectTarget := "/lab"
 		http.Redirect(w, r, redirectTarget, 302)
+
 
 	})
 
@@ -49,8 +55,6 @@ func main(){
 			redirectTarget = "/cabinet/" + strconv.Itoa(id)
 		}
 		http.Redirect(w,r, redirectTarget, 302)
-
-
 	})
 
 	router.GET("/logout", func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
@@ -129,8 +133,6 @@ func main(){
 
 	router.POST("/add_user", func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		r.ParseForm()
-
-
 		name := r.FormValue("name")
 		email := r.FormValue("email")
 		is_student, _ := strconv.Atoi(r.FormValue("student"))
@@ -144,10 +146,8 @@ func main(){
 				Is_student: is_student,
 			});err != nil{
 				log.Println(err)
-
 			}
 		}
-
 	})
 
 	router.GET("/addelements", func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
@@ -160,10 +160,12 @@ func main(){
 		name := r.FormValue("name")
 		src := r.FormValue("src")
 		svg := r.FormValue("svg")
-		inputx, _ := strconv.ParseFloat(r.FormValue("inputx"), 32)
-		inputy, _ := strconv.ParseFloat(r.FormValue("inputy"),32)
-		outputx,_ := strconv.ParseFloat(r.FormValue("outputx"), 32)
-		outputy, _ := strconv.ParseFloat(r.FormValue("outputx"), 32)
+		inputx, _ := strconv.ParseFloat(r.FormValue("inputx"), 64)
+		inputy, _ := strconv.ParseFloat(r.FormValue("inputy"),64)
+		outputx,_ := strconv.ParseFloat(r.FormValue("outputx"), 64)
+		outputy, _ := strconv.ParseFloat(r.FormValue("outputy"), 64)
+
+
 		if err := addElement(Elements{
 			ID: 0,
 			Name: name,
@@ -172,10 +174,69 @@ func main(){
 			Input: []Dots{
 				{inputx, inputy},
 			},
-			Output: []Dots{{outputx, outputy}},
+			Output: []Dots{
+				{outputx, outputy},
+				},
 		}); err != nil{log.Println(err)}
 
 	})
+
+	router.GET("/student/:id", func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+		checkLogin(w, r)
+		t, _ := template.ParseFiles("templates/info.html")
+		if isStudent(r) == 0{
+			id, _ := strconv.Atoi(ps.ByName("id"))
+			labs, studentname , err := userLabs(id)
+
+			if err != nil{
+				log.Println(err)
+				//http.Redirect(w, r, "/error", 302)
+			}
+
+			data :=struct {
+				StudentName string
+				UserLabs []UserLabs
+			}{studentname, labs}
+
+			t.Execute(w, data)
+
+		}
+
+	})
+
+	router.GET("/lab", func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+		t, _ := template.ParseFiles("templates/lab.html")
+
+		elems, err := getElements()
+		if err != nil{
+			log.Println(err)
+			fmt.Println(err)
+		}
+
+		data := struct {
+			Elements []Elements
+		}{elems}
+		//elements, err := json.Marshal(elems)
+		//w.Header().Set("Content-Type", "application/json")
+		//w.Write(elements)
+		t.Execute(w, data)
+	})
+
+
+	router.GET("/GetElements", func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+		elements, err := getElements()
+		if err != nil{
+			log.Println(err)
+		}
+
+		//data := struct {
+		//	Elements []Elements
+		//}{elems}
+		data, err := json.Marshal(elements)
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(data)
+	})
+
 	server := http.Server{
 		Addr: ":8000",
 		ReadTimeout: time.Duration(30) * time.Second,

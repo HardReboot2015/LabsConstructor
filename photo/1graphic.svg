@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 329 232" style="enable-background:new 0 0 329 232;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st2{fill:none;}
+	.st3{font-family:'MyriadPro-Regular';}
+	.st4{font-size:7px;}
+	.st5{font-size:9px;}
+</style>
+<g id="Слой_1" class="st0">
+</g>
+<g id="Слой_2">
+	<polyline class="st1" points="239.5,184.5 246.5,182.5 72.54,182.5 72.5,50.5 69.5,56.5 72.5,50.5 75.11,56.5 	"/>
+	<line class="st1" x1="239.5" y1="180.5" x2="246.5" y2="182.5"/>
+	<line class="st1" x1="72.52" y1="108.2" x2="243.64" y2="108.2"/>
+	<polyline class="st1" points="239.5,124.62 216.5,154.5 93.51,154.5 	"/>
+	<polyline class="st1" points="109.5,130.5 205.26,130.5 231.5,96.5 	"/>
+	<polyline class="st1" points="128.5,103.5 192.21,103.5 227.5,57.5 	"/>
+	<line class="st1" x1="224.17" y1="61.85" x2="224.17" y2="106"/>
+	<line class="st1" x1="227.5" y1="101.68" x2="228" y2="139.56"/>
+	<line class="st1" x1="120.5" y1="114.5" x2="122.5" y2="119.5"/>
+	<line class="st1" x1="123.77" y1="120.62" x2="125.5" y2="126.5"/>
+	<line class="st1" x1="126.5" y1="128.5" x2="131.29" y2="139.56"/>
+	<line class="st1" x1="132.5" y1="142.5" x2="133.5" y2="147.5"/>
+	<line class="st1" x1="134.5" y1="149.5" x2="136.5" y2="155.5"/>
+	<path class="st1" d="M78.5,174.5c8.84-10.98,15.51-20.39,20-27c6.7-9.87,7.66-12.22,20-31c0,0,4.61-7.01,19-26
+		c6.09-8.04,8.48-10.91,13-13c7.42-3.43,16.81-3.01,24,1c5.23,2.91,8.22,7.98,14,18c3.92,6.81,5.23,10.34,12,25c0,0,3.24,7.01,8,17
+		c4.15,8.72,10.34,21.01,19,36"/>
+	<rect x="79.27" y="100.14" class="st2" width="19.58" height="10.68"/>
+	<text transform="matrix(1 0 0 1 79.2744 105.1128)" class="st3 st4">Tcp</text>
+	<rect x="64.13" y="49.7" class="st2" width="14.84" height="15.23"/>
+	<text transform="matrix(1 0 0 1 64.1318 56.0933)" class="st3 st5">T</text>
+	<rect x="162.38" y="62.95" class="st2" width="10.88" height="12.07"/>
+	<text transform="matrix(1 0 0 1 162.3848 69.335)" class="st3 st5">K</text>
+	<rect x="149.92" y="91.01" class="st2" width="30.46" height="12.07"/>
+	<text transform="matrix(1 0 0 1 149.9229 97.4014)" class="st3 st5">pк, tк</text>
+	<rect x="146.36" y="120.12" class="st2" width="41.14" height="13.45"/>
+	<text transform="matrix(1 0 0 1 146.3623 126.5112)" class="st3 st5">рпр, tпр</text>
+	<rect x="163.96" y="145.44" class="st2" width="36.99" height="14.64"/>
+	<text transform="matrix(1 0 0 1 163.9561 151.8291)" class="st3 st5">ро, to</text>
+	<rect x="230.19" y="141.03" class="st2" width="5.93" height="7.32"/>
+	<text transform="matrix(1 0 0 1 230.1865 147.4229)" class="st3 st5">1</text>
+	<rect x="231.55" y="97.13" class="st2" width="9.16" height="9.5"/>
+	<text transform="matrix(1 0 0 1 231.5518 103.522)" class="st3 st5">2</text>
+	<rect x="217.57" y="98.35" class="st2" width="9.1" height="10.09"/>
+	<text transform="matrix(1 0 0 1 217.5713 104.7417)" class="st3 st5">3</text>
+	<rect x="217.15" y="54.84" class="st2" width="9.69" height="12.26"/>
+	<text transform="matrix(1 0 0 1 217.1543 61.2251)" class="st3 st5">4</text>
+	<rect x="121.63" y="95.56" class="st2" width="9.1" height="9.16"/>
+	<text transform="matrix(1 0 0 1 121.626 101.9507)" class="st3 st5">5</text>
+	<rect x="112.3" y="110.37" class="st2" width="7.12" height="5.93"/>
+	<rect x="113.4" y="110.18" class="st2" width="14.64" height="11.27"/>
+	<text transform="matrix(1 0 0 1 113.3955 116.5659)" class="st3 st5">6</text>
+	<rect x="135.67" y="158.26" class="st2" width="12.26" height="9.69"/>
+	<text transform="matrix(1 0 0 1 135.6699 164.6533)" class="st3 st5">7</text>
+	<rect x="212.02" y="157.86" class="st2" width="8.9" height="11.67"/>
+	<text transform="matrix(1 0 0 1 212.0225 164.2471)" class="st3 st5">8</text>
+	<rect x="241.08" y="185.71" class="st2" width="11.47" height="8.51"/>
+	<text transform="matrix(1 0 0 1 241.0771 192.1035)" class="st3 st5">S</text>
+</g>
+</svg>

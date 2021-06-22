@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/Prac/1234/bootstrap.css">
+    <link rel="stylesheet" href="/Prac/1234/bootstrap.min.css">
+    <link rel="stylesheet" href="/Prac/1234/main.css">
+    <link rel="stylesheet" href="/Prac/1234/form.css">
+    <link rel="stylesheet" href="/Prac/1234/timer.css">    
+</head>
+
+<body style="background-color: #ebebeb">
+    <nav class="py-2  border-bottom bg-info">
+        <div class="container d-flex flex-wrap">
+        <ul class="nav me-auto">
+            
+            <li class="nav-item"><a href="#" class="nav-link text-light px-2 active">Кабінет</a></li>
+            
+        </ul>
+        
+        <form class="form-inline my-2 my-lg-0 d-none d-sm-none d-md-block d-lg-block" action="/logout" method="GET">
+            <button class="btn btn-info" type="submit">Вихід</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="main d-flex bg-info">
+        <div class="menu-bar d-flex flex-row flex-wrap justify-content-center">
+            <img src="/Prac/1234/png/вентиль дросельный проходной.svg" alt="" id="photo" class="menu-png">
+            <img src="/Prac/1234/png/труопровод газовый.png" alt="" class="menu-png"><img src="/Prac/1234/png/трубопровод жидкостный-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/теплообменика регеративный-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/Ресивер-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/насос центробежный.png" alt="" class="menu-png"><img src="/Prac/1234/png/маслоотделитель-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/конденсатор_с_воздушным_охлаждением_02.png" alt="" class="menu-png"><img src="/Prac/1234/png/конденсатор проточный-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/конденсатор - испаритель.png" alt="" class="menu-png"><img src="/Prac/1234/png/компрессор сальниковый-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/компрессор бессальниковый.png" alt="" class="menu-png"><img src="/Prac/1234/png/клапан предохранительный-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/испаритель проточный-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/Воздухоохладитель-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/вентилятор осевой-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/вентиль угловой-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/вентиль проходной.png" alt="" class="menu-png"><img src="/Prac/1234/png/вентиль заправочный-02.png" alt="" class="menu-png"><img src="/Prac/1234/png/вентиль дросельный угловой.png" alt="" class="menu-png">
+            <div class="line-point d-flex justify-content-center">
+                <img src="/Prac/1234/png/линия.png" alt="" id = "line" onclick="add()" class="menu-png">
+                <img src="/Prac/1234/png/точка.png" alt="" class="menu-png">
+            </div>
+        </div>
+        <div id="clock"></div>
+        <div class="labs-btn d-flex flex-column">
+            <input value='Почати спробу' id="start" class="btn-start btn-primary" type="submit">
+            <input value='Закінчити'class="btn-end btn-danger" id="end" type="submit">
+        </div>
+    </div>
+    <div class="main-middle d-flex bg-info">
+            <canvas id="canvas" width="892px" height="672px"></canvas>
+        <div class="grafics d-flex justify-content-center flex-column">
+            <img src="/Prac/1234/png/1 график-02.svg">
+            <select class="combobox d-flex justify-content-center">
+                <option selected value="s1">Виберіть правильний варіант</option>
+                <option value="s2">Варіан1</option>
+                <option value="s3">Варіант2</option>
+            </select> 
+            <img src="/Prac/1234/png/2 график-02.svg">
+            <select class="combobox d-flex justify-content-center">
+                <option selected value="s1">Виберіть правильний варіант</option>
+                <option value="s2">Варіан1</option>
+                <option value="s3">Варіант2</option>
+            </select> 
+        </div>
+    </div>   
+</div>
+<script src="/Prac/1234/timer.js"></script>
+<script src="/Prac/1234/btn-func.js"></script>
+</body>
+</html>

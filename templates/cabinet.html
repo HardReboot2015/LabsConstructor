@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/css/bootstrap.css">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="/static/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="/static/css/main.css">
 
 
@@ -12,7 +12,7 @@
 
 <body style="background-color: #ebebeb">
 
-<nav class="py-2  border-bottom bg-info">
+<nav class="py-2  border-bottom color-blue">
     <div class="container d-flex flex-wrap">
         <ul class="nav me-auto">
 
@@ -21,29 +21,30 @@
         </ul>
 
         <form class="form-inline my-2 my-lg-0 d-none d-sm-none d-md-block d-lg-block" action="/logout" method="GET">
-            <button class="btn btn-info" type="submit">Вихід</button>
+            <button class="btn btn-primary color-blue" type="submit">Вихід</button>
         </form>
     </div>
 </nav>
 
 <div class="container-fluid" style="width: 75%">
     {{if not .Is_Student }}
-    <a href="/#" class="btn btn-outline-info m-3">Додати завдання</a>
-    <a href="/users" class="btn btn-outline-info m-3">Перейти до користувачів</a>
+    <a href="/#" class="btn btn-outline-primary color-outline-blue m-3">Додати завдання</a>
+    <a href="/users" class="btn btn-outline-primary color-outline-blue m-3">Перейти до користувачів</a>
     {{end}}
     <table data-toggle="table" class ="table table-striped table-light" style="width: 100%">
         <thead class = "">
         <tr>
             <th style="width: 10%">Л/р</th>
-            <th>Тема</th>
+            <th>Tема</th>
             <th style="width: 10%">Доступно</th>
+            <
         </tr>
         </thead>
         <tbody>
         {{range .Labs}}
             <tr>
                 <td>{{.Number}}</td>
-                <td><a href=""> {{.Theme}}</a></td>
+                <td><a href=""><a href="/lab">{{.Theme}}</a> </td>
                 <td><input type="checkbox" class="" disabled style="background-color: #17a2b8!important;"  {{if .Access}} checked {{end}}></td>
             </tr>
         {{end}}
